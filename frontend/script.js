@@ -11,7 +11,7 @@ async function calculate() {
 
     try {
         // Sending data to our backend server API on Render
-        const response = await fetch('https://fullstack-calculator-t4sv.onrender.com/api/calculate', {
+const response = await fetch('https://fullstack-calculator-t4sv.onrender.com/api/calculate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
