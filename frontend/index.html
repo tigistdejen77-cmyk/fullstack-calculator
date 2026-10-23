@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Calculator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-96 border border-slate-200">
+        <h1 class="text-2xl font-bold text-center text-slate-800 mb-6">Tigist Calculator</h1>
+        
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">First Number</label>
+                <input type="number" id="num1" placeholder="Enter number" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Operation</label>
+                <select id="operation" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                    <option value="add">(+) Add</option>
+                    <option value="subtract">(-) Subtract</option>
+                    <option value="multiply">(×) Multiply</option>
+                    <option value="divide">(÷) Divide</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Second Number</label>
+                <input type="number" id="num2" placeholder="Enter number" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <button onclick="calculate()" class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">
+                Calculate
+            </button>
+        </div>
+
+        <div class="mt-6 p-4 bg-slate-50 rounded-xl text-center border border-slate-100">
+            <h2 class="text-sm font-medium text-slate-500">Result</h2>
+            <div id="result" class="text-3xl font-bold text-blue-600 mt-1">0</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
