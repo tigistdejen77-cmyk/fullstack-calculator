@@ -1,21 +1,23 @@
 const express = require('express');
-const cors = require('cors');
-
+const cors = require('cors'); // CORS ን መጥራት
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// CORS ን ማንቃት
 app.use(cors());
+
 app.use(express.json());
 
+// የሂሳብ ስራውን የምንሰራበት API
 app.post('/api/calculate', (req, res) => {
     const { num1, num2, operation } = req.body;
-    
-    let result;
+
     const n1 = parseFloat(num1);
     const n2 = parseFloat(num2);
+    let result;
 
     if (isNaN(n1) || isNaN(n2)) {
-        return res.status(400).json({ error: 'እባክዎ ትክክለኛ ቁጥሮችን ያስገቡ!' });
+        return res.status(400).json({ error: 'Please provide valid numbers' });
     }
 
     switch (operation) {
@@ -30,12 +32,12 @@ app.post('/api/calculate', (req, res) => {
             break;
         case 'divide':
             if (n2 === 0) {
-                return res.status(400).json({ error: 'ማካፈል በ0 አይቻልም!' });
+                return res.status(400).json({ error: 'Cannot divide by zero' });
             }
             result = n1 / n2;
             break;
         default:
-            return res.status(400).json({ error: 'ትክክለኛ ያልሆነ ስራ (Operation) ነው!' });
+            return res.status(400).json({ error: 'Invalid operation' });
     }
 
     res.json({ result });
